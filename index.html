@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comms SM Calendar</title>
+    <link rel="stylesheet" href="style.css" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+
+</head>
+
+<body>
+    <div class="main-container">
+        <div class="header-container">
+            <div class="date-month-container">
+                <i class="fas fa-angle-left prev"></i>
+                <div class="month-year">Loading...</div>
+                <i class="fas fa-angle-right next"></i>
+            </div>
+            <div class="search-today-container">
+                <div class="search-box">
+                    <input class="goto" placeholder="mm/yyyy">
+                    <i class="fas fa-search search-icon"></i>
+                </div>
+                <div class="go-today-btn-continer">
+                    <button class="btn-go-today">Today</button>
+                </div>
+            </div>
+        </div>
+        <div class="calendar-conatiner">
+            <div class="shimmer-wrapper">
+                <div class="shimmer"></div>
+            </div>
+
+        </div>
+
+
+        <div class="add-btn">
+            <button>+</button>
+        </div>
+
+        <div class="add-new">
+
+
+            <div class="add-form">
+                <h2 class="form-title">Add New</h2>
+                <div class="form-head">
+                    <i class="fa-solid fa-xmark form-close-btn"></i>
+                </div>
+
+                <div class="form-fields">
+                    <div class="date">
+                        <input class="date_input" id="input_date" placeholder=" Date" type="date">
+
+                    </div>
+
+                    <input class="inputs title" id="input_title" placeholder=" Title">
+                    <div class="platform-cat">
+                        <input class="inputs platform" list="platforms" id="input_platform" placeholder=" Platform">
+                        <datalist id="platforms">
+                           
+                        </datalist>
+
+
+
+                        <div class="category" id="input_category">
+                            <select class="input_cat" id="category">
+
+                                <option value="Authored Journal Articles">Authored Journal Articles</option>
+                                <option value="Authored Popular Article">Authored Popular Article</option>
+                                <option value="News">News</option>
+                                <option value="Video">Video</option>
+                                <option value="Event">Event</option>
+                                <option value="Featured Popular Article">Featured Popular Article</option>
+                                <option value="Podcast">Podcast</option>
+                                <option value="Book">Book</option>
+                                <option value="Book Chapters">Book chapters</option>
+                                <option value="Policy Brief">Policy Brief</option>
+                                <option value="CS">C&S</option>
+                                <option value="Announcement">Announcement</option>
+                                <option value="Report">Report</option>
+                                <option value="Talk@ATREE">Talk@ATREE</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="urls">
+                        <input class="input_link" id="input_link" placeholder=" Link">
+                        <input class="input_imgUrl" id="input_imgurl" placeholder=" Image URL">
+                    </div>
+                    <textarea class=" input_desc" id="input_desc" placeholder=" Description"></textarea>
+                    <div class="input_mention">
+                        <!--
+                        <select class="tags-select" name="countries" id="countries" multiple aria-placeholder="mention"> -->
+                        <div class="tag-items">
+                            
+
+
+
+                        </div>
+                        <input name="tags"  list="tags" class="tags-input-box tags" placeholder="mention">
+                        <datalist id="tags">
+                            <option value="Down To Earth"></option>
+                            <option value="New Age"></option>
+
+                        </datalist>
+
+                        
+                    </div>
+                    <div class="remark-sm">
+
+
+                        <textarea class="remarks" placeholder=" Remarks"></textarea>
+                        <input id="input_checkBox_SM" type="checkbox">SM
+                        <input id="input_checkBox_sheet" type="checkbox" >Sheet
+                    </div>
+                    <textarea class="custom-title" placeholder="Custom Title"></textarea>
+                    <button class="btn-submit">Submit</button>
+
+                </div>
+
+            </div>
+
+
+
+
+        </div>
+        <div id="toast" class="toast"></div>
+
+        <div class="Edit-form-container">
+            <div class="header-Editform"></div>
+
+        </div>
+
+        <div class="popup-container">
+            <div class="popup-title">Confirm Deletion</div>
+            <div class="popup-btns-container">
+                <button class="btn-cancel">Cancel</button>
+                <button class="btn-del">Delete</button>
+            </div>
+        </div>
+
+
+
+    </div>
+
+
+
+
+
+
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+
+    <script src="db.js"> </script>
+
+
+    <!-- Flatpickr CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <!-- Flatpickr JS -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag@3.1.0/dist/css/multi-select-tag.css">
+    <script src="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag@3.1.0/dist/js/multi-select-tag.js"></script>
+
+    <script src="main.js"></script>
+
+    <script src="form.js"></script>
+</body>
+
+</html>
