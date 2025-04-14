@@ -146,7 +146,7 @@ function initCalendar() {
         dayArray = dayArray.concat(dayArray[i - 1]);
         console.log(month.length)
 
-        if(month<10){
+        if(month<11){
              c_date = `${i}/0${month + 1}/${year}`;
         }else{
             c_date = `${i}/${month + 1}/${year}`;
@@ -495,6 +495,8 @@ function makeEventsDraggable() {
                     let selected_title = selected.querySelector(".event-title").innerHTML;
                     let target_date = e.target.getAttribute("data-event-id");
 
+                    console.log("droppped");
+
 
 
 
@@ -592,7 +594,17 @@ function update_db(selected_title, target_date) {
             if (data[key].custom_title === selected_title) {
                 let original_data = data[key];
 
-                original_data.date = target_date;
+                let targetdatesplit=target_date.split('/');
+                let targetsplit_m=targetdatesplit[1];
+                if (targetsplit_m < 10 ) {
+                    original_data.date = `${targetdatesplit[0]}/0${targetdatesplit[1]}/${targetdatesplit[2]}`
+                }else{
+                    original_data.date = target_date;
+                }
+                    
+
+                
+                
 
                 ref_db.push(original_data).then(
                     () => {
