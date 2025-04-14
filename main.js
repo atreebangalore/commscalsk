@@ -146,7 +146,7 @@ function initCalendar() {
         dayArray = dayArray.concat(dayArray[i - 1]);
         console.log(month.length)
 
-        if(month<11){
+        if(month<9){
              c_date = `${i}/0${month + 1}/${year}`;
         }else{
             c_date = `${i}/${month + 1}/${year}`;
