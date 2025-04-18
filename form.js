@@ -263,7 +263,7 @@ function send_to_firebase() {
         custom_title: custom_title
     }).then(() => {
         loadDB();
-        showToast("Success"); 
+        showToast("Success:fb"); 
          clearForm();
 
     }).catch((error) => {
@@ -286,13 +286,13 @@ function send_to_sheet() {
 
     console.log("url= " + baseUrl + parameters);
     fetch(baseUrl + parameters).then(response => {
-        
+        clearForm();
       
         return response.text()
 
     }).then(data => {
-        showToast(data.toString()); 
-         clearForm();
+        showToast(data.toString()+": sheet"); 
+         
     })
 }
 
