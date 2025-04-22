@@ -220,6 +220,8 @@ sumbit_btn.addEventListener("click", () => {
         if (is_sheet) {
             send_to_sheet();
         }
+        clearForm();
+
 
 
         loadDB();
@@ -264,7 +266,7 @@ function send_to_firebase() {
     }).then(() => {
         loadDB();
         showToast("Success:fb"); 
-         clearForm();
+        // clearForm();
 
     }).catch((error) => {
         console.error("Error: ", error);
@@ -273,6 +275,14 @@ function send_to_firebase() {
 
 }
 function send_to_sheet() {
+    title = encodeURIComponent( title_box.value.trim());
+    platform = encodeURIComponent(platform_box.value.trim());
+    category = encodeURIComponent(category_selector.value.trim());
+    url = encodeURIComponent(url_box.value.trim());
+    img_url = encodeURIComponent( img_url_box.value.trim());
+    description =encodeURIComponent (description_box.value.trim());
+    remarks = encodeURIComponent(remark_box.value.trim());
+    custom_title = encodeURIComponent(custom_title_box.value.trim());
     //date,	cat,	title, 	platform,	url,	desc,	mentions,	img_url
     console.log("sending to sheet");
     sumbit_btn.innerHTML = "Sending...";
@@ -286,7 +296,7 @@ function send_to_sheet() {
 
     console.log("url= " + baseUrl + parameters);
     fetch(baseUrl + parameters).then(response => {
-        clearForm();
+      //  clearForm();
       
         return response.text()
 
