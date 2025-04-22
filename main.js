@@ -13,6 +13,8 @@ const popup_container = document.querySelector(".popup-container");
 const btn_cancel = document.querySelector(".btn-cancel");
 const btn_delete = document.querySelector(".btn-del");
 
+let delete_enable=false;
+
 
 
 const form_body = document.querySelector(".add-new");
@@ -437,7 +439,12 @@ function showToast(message) {
 
 function show_delete_cnf_popup(item_id) {
     console.log("showing popup")
-    popup_container.style.visibility = "visible";
+    if(delete_enable){
+         popup_container.style.visibility = "visible";
+    }else{
+        showToast("Delete disabled")
+    }
+   
 
     btn_delete.addEventListener("click",()=>{
         delete_item(item_id);

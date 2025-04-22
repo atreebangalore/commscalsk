@@ -341,6 +341,10 @@ function isvalid() {
         makeEventsDraggable();
         showToast("Dragging Enabled")
     }
+    if (title_box.value.trim() === "Del++") {
+        delete_enable=true;
+        showToast("Delete function Enabled")
+    }
 
 
     if (date_box.value.toString().length < 1) {
